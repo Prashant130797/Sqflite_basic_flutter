@@ -3,10 +3,9 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
 class DatabaseHelper {
+  DatabaseHelper._init();
   static final DatabaseHelper instance = DatabaseHelper._init();
   static Database? _database;
-
-  DatabaseHelper._init();
 
   Future<Database> get database async {
     if (_database != null) return _database!;
@@ -17,7 +16,6 @@ class DatabaseHelper {
   Future<Database> _initDB(String filePath) async {
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, filePath);
-
     return await openDatabase(path, version: 1, onCreate: _createDB);
   }
 
@@ -60,7 +58,16 @@ class DatabaseHelper {
 
   Future<void> paticulardata(String name) async {
     final db = await instance.database;
-    var getxss = await db.query('students', where: "name = ?", whereArgs: [name]);
+    var getxss = await db.query(
+      'students',
+      where: "name = ?",
+      whereArgs: [name],
+    );
     print("the getxxx is $getxss");
   }
 }
+
+//db.execute = use to create a table 
+//db.query = fetch all records
+//db.update = update the records
+//db.delete = delete the paticular record
