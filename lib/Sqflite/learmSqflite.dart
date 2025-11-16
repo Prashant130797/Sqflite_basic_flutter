@@ -13,7 +13,17 @@ class DartNewSqfliState extends StatefulWidget {
 }
 
 class __DartNewSqfliStateState extends State<DartNewSqfliState> {
-  Future<Database> _initlizeDatabase() async {
+  var mainjson = {
+    "name": "prashant",
+    "age": 101,
+    "isnideinfo": [
+      {"camera": "101", "utis": "wadala"},
+      {"camera": "101", "utis": "wadala"},
+      {"camera": "101", "utis": "wadala"},
+    ],
+  };
+
+ static Future<Database> _initlizeDatabase() async {
     final dbpath = await getDatabasesPath();
     final path = join(dbpath, 'students.db');
     print("The path is $path");
@@ -136,7 +146,7 @@ class __DartNewSqfliStateState extends State<DartNewSqfliState> {
               ),
             ),
             //==========>>>
-              GestureDetector(
+            GestureDetector(
               onTap: () async {
                 var dbhelper = DatabaseHelper.instance;
                 dbhelper.paticulardata("prashant");

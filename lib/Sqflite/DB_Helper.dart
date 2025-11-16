@@ -1,4 +1,5 @@
 import 'package:learn_provider/Sqflite/dbModel.dart';
+import 'package:learn_provider/Sqflite/learmSqflite.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
@@ -67,7 +68,7 @@ class DatabaseHelper {
   }
 }
 
-//db.execute = use to create a table 
+//db.execute = use to create a table
 //db.query = fetch all records
 //db.update = update the records
 //db.delete = delete the paticular record
